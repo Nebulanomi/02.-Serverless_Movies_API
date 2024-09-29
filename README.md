@@ -237,7 +237,6 @@ for movie in movies_data.movies:
 
 ```python
 # Import necessary modules
-from azure.storage.blob import BlobServiceClient
 import main
 
 # Manage Azure Storage accounts
@@ -260,7 +259,7 @@ print(f"Provisioned Storage Account {main.storage_account_name} in the Resource 
 storage_account_url = f"https://{main.storage_account_name}.blob.core.windows
 
 .net"
-blob_service_client = BlobServiceClient(account_url=storage_account_url, credential=main.credential)
+blob_service_client = main.BlobServiceClient(account_url=storage_account_url, credential=main.credential)
 
 # Create the container
 container_client = blob_service_client.create_container(main.storage_account_container_name)
