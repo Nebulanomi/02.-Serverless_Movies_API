@@ -5,11 +5,16 @@ import openai   # Import OpenAI's GPT for AI summary generation
 
 import azure.functions as func  # Import Azure Functions HTTP request/response classes
 from azure.cosmos import CosmosClient, exceptions  # Import Cosmos client and exception handling
+from dotenv import load_dotenv # Import dotenv to be able to get the .env file
+
+# Take environment variables from .env
+load_dotenv()
 
 # Fetch Cosmos DB credentials from environment variables
 # These should be set in the Azure portal under "Application Settings" for security purposes
 cosmos_endpoint_uri = os.getenv("COSMOS_DB_ENDPOINT")
 key = os.getenv("COSMOS_DB_KEY")
+
 database_name = os.getenv("COSMOS_DB_NAME")
 container_name = os.getenv("COSMOS_CONTAINER_NAME")
 
@@ -100,7 +105,7 @@ def get_movies_by_year(req: func.HttpRequest) -> func.HttpResponse:
 
 # Define the route for generating a movie summary based on the title
 @app.route(route="movies/getmoviesummary/{title}")
-def main(req: func.HttpRequest) -> func.HttpResponse:
+def get_movies_by_summary(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Fetching movie details for summary generation.')
 
     client = CosmosClient(cosmos_endpoint_uri, key)

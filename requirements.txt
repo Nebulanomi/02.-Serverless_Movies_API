@@ -1,15 +1,26 @@
-# DO NOT include azure-functions-worker in this file
-# The Python Worker is managed by Azure Functions platform
-# Manually managing azure-functions-worker may cause unexpected issues
-
+# Provides authentication capabilities using Azure Active Directory credentials
 azure-identity
+
+# Manages Azure resources through Azure Resource Manager (ARM) API
 azure-mgmt-resource
+
+# Manages Azure Cosmos DB accounts and related resources
 azure-mgmt-cosmosdb
+
+# Provides management capabilities for Azure Storage resources (Blobs, Files, Queues, Tables)
 azure-mgmt-storage
 
+# Interacts with Azure Cosmos DB to perform CRUD operations on documents
 azure-cosmos
+
+# Manages Azure Blob Storage for uploading, downloading, and handling blobs
 azure-storage-blob
+
+# Develops and manages Azure Functions for serverless computing
 azure-functions
 
-PyGithub
+# Interacts with OpenAI's API for accessing models like GPT-3 and DALL-E (version 0.28)
 openai ==0.28
+
+# Loads environment variables from a .env file for configuration management
+python-dotenv
